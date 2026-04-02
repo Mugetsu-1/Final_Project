@@ -2,12 +2,19 @@
 
 This project is a complete data science workflow that predicts whether a stock will move up or down on the next trading day. It follows the structure requested in the certification PDF: data collection, cleaning, transformation, EDA, feature selection, model development, evaluation, hyperparameter tuning, and Streamlit deployment on localhost.
 
+This version also includes two bonus items from the PDF:
+- additional model comparison in the notebook
+- a simple Flask REST API for predictions
+
+Docker is not included in this submission.
+
 ## Project Scope
 
 - Dataset: 3 years of Yahoo Finance historical data for a basket of large-cap US stocks
 - Problem type: Binary classification
 - Target: `1` if the next trading day's close is higher than the current close, otherwise `0`
-- Deployment: Streamlit application running on localhost
+- Main deployment: Streamlit application running on localhost
+- Bonus deployment: Flask REST API running on localhost
 
 ## Main Features
 
@@ -18,6 +25,7 @@ This project is a complete data science workflow that predicts whether a stock w
 - Multiple baseline models compared before tuning the best candidate
 - Time-aware validation using date-based splitting and time-series cross-validation
 - Streamlit app for live prediction on the latest downloaded market data
+- Optional Flask API for REST-style prediction requests
 
 ## Project Files
 
@@ -25,6 +33,8 @@ This project is a complete data science workflow that predicts whether a stock w
 DataScienceFinalPrj/
 ├── Stock_Market_Prediction.ipynb   # Main notebook following the assignment steps
 ├── app.py                          # Streamlit application
+├── flask_api.py                    # Bonus Flask REST API
+├── project_core.py                 # Shared data preparation and prediction utilities
 ├── requirements.txt                # Python dependencies
 ├── README.md                       # Project documentation
 ├── Data Science Certification Task.pdf
@@ -54,7 +64,13 @@ jupyter notebook
 streamlit run app.py
 ```
 
-4. If the model files do not exist yet, click `Train Model Now` in the app.
+4. Optional bonus: start the Flask API:
+
+```bash
+flask --app flask_api run
+```
+
+5. If the model files do not exist yet, run the notebook through Step 7 first so the saved artifacts are created.
 
 ## Workflow Covered In The Notebook
 
@@ -66,6 +82,19 @@ streamlit run app.py
 6. Model Evaluation and Hyperparameter Tuning
 7. Saving The Final Model
 8. Streamlit Deployment Instructions
+9. Bonus Notes For Additional Models And Flask API
+
+## Assignment Checklist
+
+- Data collection and initial exploration: covered in the notebook with dataset shape, data types, summary statistics, and missing-value checks.
+- Data cleaning and transformation: covered with missing-value handling, outlier detection/treatment, encoding, scaling, and feature engineering.
+- EDA: covered with Matplotlib and Seaborn visualizations plus short findings.
+- Feature selection: covered with feature importance and correlation-based reduction.
+- Model development: covered with train/test split, multiple algorithms, training, and metric comparison.
+- Model evaluation and tuning: covered with time-series cross-validation, GridSearchCV, and final model selection.
+- Deployment: covered with the Streamlit app in `app.py`.
+- Documentation: covered by the notebook, this README, and comments/docstrings in the code.
+- Version control: the project is organized as a GitHub repository with code, notebook, app, and documentation.
 
 ## Modeling Notes
 
@@ -74,6 +103,8 @@ streamlit run app.py
 - Cross-validation is also time-aware.
 - The final saved artifacts are shared by the notebook and the Streamlit app.
 - The submission is centered on the two required deliverables: one notebook and one Streamlit app.
+- The optional Flask API is included as an extra bonus feature.
+- Docker is intentionally excluded because this submission uses the Flask and additional-model bonus options instead.
 
 ## Important Note
 
