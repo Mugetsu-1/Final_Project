@@ -6,7 +6,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
-from project_core import DEFAULT_TRAIN_TICKERS, load_artifacts, run_prediction
+
 
 st.set_page_config(
     page_title="Stock Market Predictor",
