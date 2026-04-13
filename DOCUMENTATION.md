@@ -18,8 +18,9 @@ This project follows the formal objective workflow and keeps implementation clea
 3. EDA and key visual analysis
 4. Feature engineering and selection
 5. Model development and comparison
-6. Evaluation and threshold tuning
-7. Saving artifacts for deployment
+6. Time-series cross-validation and randomized hyperparameter search
+7. Validation-set threshold tuning and final holdout evaluation
+8. Saving artifacts for deployment
 
 ### Optional GPU Mode
 
@@ -32,11 +33,11 @@ This project follows the formal objective workflow and keeps implementation clea
 `app.py` handles:
 - Loading saved artifacts
 - Live ticker selection and prediction
-- Classical ML and ARIMA prediction modes
+- Classical ML inference and ARIMA benchmark mode
 - Displaying:
   - UP (green)
   - DOWN (red)
-  - probabilities and charts
+  - model outputs and charts
 
 ## Main Dependencies
 
@@ -60,3 +61,5 @@ This project follows the formal objective workflow and keeps implementation clea
 - The notebook is structured in clear numbered steps.
 - Each stage has short, focused code blocks.
 - Pipeline is reproducible by running cells top-to-bottom.
+- Data cleaning explicitly includes missing-value handling and IQR-based outlier treatment.
+- Feature preparation explicitly includes categorical encoding for model-ready inputs.
